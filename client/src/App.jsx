@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom"
-import Layout from "./layout"
 import MainPage from "./pages/MainPage"
+import LayoutCutom from "./layout"
+import LoginPage from "./pages/LoginPage"
+import RegisterPage from "./pages/RegisterPage"
 
 const App = () => {
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route element={<LayoutCutom />}>
         <Route index element={<MainPage />} />
-        <Route path="login" element={<>Login</>} />
-        <Route path="register" element={<>Register</>} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
       </Route>
     </Routes>
   )

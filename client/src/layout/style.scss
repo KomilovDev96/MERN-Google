@@ -1,0 +1,19 @@
+.header{
+    background: rgb(116, 224, 219);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 200px;
+    &_menu{
+        display: flex;
+        list-style: none;
+        li{
+            margin: 0 20px;
+        }
+        a{
+            color: rgb(78, 78, 78);
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+}
