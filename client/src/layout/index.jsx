@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 import "./style.scss";
 import { useSelector } from 'react-redux';
 const LayoutCustom = () => {
