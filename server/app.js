@@ -26,7 +26,7 @@ const PORT = process.env.PORT || "3000"
 const start = async () => {
     try {
         app.listen(PORT, () => {
-            console.log(`Portimiz ${PORT}`)
+            console.log(`Portimiz localhost:${PORT} ko'tarildi`)
         })
     } catch (e) {
         console.log(e)

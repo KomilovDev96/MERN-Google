@@ -3,8 +3,11 @@ import MainPage from "./pages/MainPage"
 import LayoutCutom from "./layout"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
+import { useSelector } from "react-redux"
 
 const App = () => {
+  const isAuth = useSelector(state => state.user.isAuth)
+  console.log(isAuth)
   return (
     <Routes>
       <Route element={<LayoutCutom />}>

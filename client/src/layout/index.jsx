@@ -13,7 +13,6 @@ const LayoutCustom = () => {
                         <Link to={"login"}>
                             Login
                         </Link>
-
                     </li>
                     <li>
                         <Link to={"register"}>
