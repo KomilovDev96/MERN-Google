@@ -4,12 +4,12 @@ import { loginUser } from '../../actions/user';
 import { useDispatch } from 'react-redux'
 
 import "./style.scss"
+import { useLocation } from 'react-router-dom';
 
 
 
 const LoginPage = () => {
     const dispatch = useDispatch()
-
     const onFinish = (values) => {
         const { email, password } = values
         dispatch(loginUser(email, password))
