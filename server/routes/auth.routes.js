@@ -19,15 +19,14 @@ router.post('/registration',
                 return res.status(400).json({ message: "Неверный запрос", errors })
             }
             const { email, password } = req.body
-            console.log(email, password)
             const candidate = await User.findOne({ email })
             if (candidate) {
                 return res.status(400).json({ message: `Пользователь с электронной почтой ${email} уже существует` })
             }
             const hashPassword = await bcrypt.hash(password, 8)
             const user = new User({ email, password: hashPassword })
-            // await fileService.createDir(new File({user: user.id, name: ''}))
             await user.save()
+            await fileService.createDir(req, new File({user: user.id, name: ''}))
             res.json({ message: "Пользователь создан" })
         } catch (e) {
             res.send({ message: "Ошибка сервера" })

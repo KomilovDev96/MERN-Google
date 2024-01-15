@@ -1,2 +1,0 @@
-# MERN-Google
-MERN-Google
