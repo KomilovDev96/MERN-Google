@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
-import { loginUser } from '../../actions/user';
-import { useDispatch } from 'react-redux'
+import { auth, loginUser } from '../../actions/user';
+import { useDispatch, useSelector } from 'react-redux'
 
 import "./style.scss"
 import { useLocation } from 'react-router-dom';
@@ -18,7 +18,7 @@ const LoginPage = () => {
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
+    const loading = useSelector(state => state.user.loading)
     return (
         <div className='login'>
             <h1>Login</h1>
@@ -71,12 +71,12 @@ const LoginPage = () => {
                         span: 16,
                     }}
                 >
-                    <Button type="primary" htmlType="submit">
+                    <Button loading={loading} type="primary" htmlType="submit">
                         Submit
                     </Button>
                 </Form.Item>
             </Form>
-           
+
         </div>
     )
 };
