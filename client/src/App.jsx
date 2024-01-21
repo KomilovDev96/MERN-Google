@@ -18,7 +18,6 @@ const App = () => {
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="file" element={<FilePage />} />
-
         <Route path="*" element={<>404</>} />
       </Route>
     </Routes>

@@ -17,7 +17,7 @@ export const registerUser = async (email, password) => {
 export const loginUser = (email, password) => {
     return async dispatch => {
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', {
+            const response = await axios.post('https://merncolud-e3e7a94f70cd.herokuapp.com/api/auth/login', {
                 email,
                 password
             })
