@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { registerUser } from '../../actions/user';
+import { registerUser } from '../../store/actions/user';
 import { Button, Form, Input } from 'antd';
 
 import "./style.scss"

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
-import { auth, loginUser } from '../../actions/user';
+import {  loginUser } from '../../store/actions/user';
 import { useDispatch, useSelector } from 'react-redux'
 
 import "./style.scss"
-import { useLocation } from 'react-router-dom';
+
 
 
 

@@ -6,7 +6,7 @@ import RegisterPage from "./pages/RegisterPage"
 import { useDispatch, useSelector } from "react-redux"
 import FilePage from "./pages/FilePage"
 import { useEffect } from "react"
-import { auth } from "./actions/user"
+import { auth } from "./store/actions/user"
 
 const App = () => {
   const isAuth = useSelector(state => state.user.isAuth)

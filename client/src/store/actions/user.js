@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { setUser } from '../store/reducers/userReducers'
+import { setUser } from '../reducers/userReducers'
 import { toast } from 'react-toastify'
 const token = JSON.parse(localStorage.getItem('token'))
 export const registerUser = async (email, password) => {
@@ -29,6 +29,7 @@ export const loginUser = (email, password) => {
     }
 
 }
+
 export const auth = () => {
     return async dispatch => {
         try {
