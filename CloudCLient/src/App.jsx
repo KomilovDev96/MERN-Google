@@ -11,10 +11,12 @@ import { AuthUser } from '@/store/Features/User.slice';
 export default function App() {
   const isAuth = useSelector(state => state.user.isAuth)
   const dispatch = useDispatch()
-
+  const token = localStorage.getItem('token')
 
   useEffect(() => {
-    dispatch(AuthUser())
+    if (token) {
+      dispatch(AuthUser())
+    }
   }, [])
 
   if (isAuth) {
