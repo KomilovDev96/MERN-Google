@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { Route, Routes } from 'react-router-dom'
-import LayoutCustom from './layout'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
-import MainPage from './pages/MainPage'
+import LayoutCustom from '@/layout'
+import LoginPage from '@/pages/LoginPage'
+import RegisterPage from '@/pages/RegisterPage'
+import MainPage from '@/pages/MainPage'
 
 export default function App() {
   const isAuth = true
