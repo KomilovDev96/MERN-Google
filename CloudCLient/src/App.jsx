@@ -7,6 +7,7 @@ import RegisterPage from '@/pages/RegisterPage'
 import MainPage from '@/pages/MainPage'
 import { useDispatch, useSelector } from "react-redux"
 import { AuthUser } from '@/store/Features/User.slice';
+import DiscPage from '@/pages/DiscPage'
 
 export default function App() {
   const isAuth = useSelector(state => state.user.isAuth)
@@ -24,6 +25,7 @@ export default function App() {
       <Routes>
         <Route element={<LayoutCustom />}>
           <Route index element={<MainPage />} />
+          <Route path="deck" element={<DiscPage />} />
           <Route path="*" element={<>404</>} />
         </Route>
       </Routes>
