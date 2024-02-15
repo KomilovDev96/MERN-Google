@@ -1,25 +1,21 @@
 import React from 'react';
+
+import { registerUser } from '../../store/actions/user';
 import { Button, Form, Input } from 'antd';
 
 import "./style.scss"
-import { useDispatch } from 'react-redux';
-import { UserLogin } from '@/store/Features/User.slice';
-import { Link } from 'react-router-dom';
-
-
-
-
-const LoginPage = () => {
-    const dispatch = useDispatch()
+const RegisterPage = () => {
     const onFinish = (values) => {
-        dispatch(UserLogin(values))
+        const { email, password } = values
+        registerUser(email, password)
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
     return (
-        <div className='login'>
-            <h1>Login</h1>
+        < div className='register' >
+            <h1>Register</h1>
             <Form
                 name="basic"
                 labelCol={{
@@ -74,10 +70,8 @@ const LoginPage = () => {
                     </Button>
                 </Form.Item>
             </Form>
-                <Link to={"/register"}>
-                register
-                </Link>
-        </div>
+        </div >
     )
+
 };
-export default LoginPage;
+export default RegisterPage;

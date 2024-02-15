@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
+import {  loginUser } from '../../store/actions/user';
+import { useDispatch, useSelector } from 'react-redux'
 
 import "./style.scss"
-import { useDispatch } from 'react-redux';
-import { UserLogin } from '@/store/Features/User.slice';
-import { Link } from 'react-router-dom';
 
 
 
@@ -12,11 +11,14 @@ import { Link } from 'react-router-dom';
 const LoginPage = () => {
     const dispatch = useDispatch()
     const onFinish = (values) => {
-        dispatch(UserLogin(values))
+        const { email, password } = values
+        dispatch(loginUser(email, password))
+        console.log('Success:', values);
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+    const loading = useSelector(state => state.user.loading)
     return (
         <div className='login'>
             <h1>Login</h1>
@@ -69,14 +71,12 @@ const LoginPage = () => {
                         span: 16,
                     }}
                 >
-                    <Button type="primary" htmlType="submit">
+                    <Button loading={loading} type="primary" htmlType="submit">
                         Submit
                     </Button>
                 </Form.Item>
             </Form>
-                <Link to={"/register"}>
-                register
-                </Link>
+
         </div>
     )
 };
