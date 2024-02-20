@@ -24,8 +24,7 @@ export default function App() {
     return (
       <Routes>
         <Route element={<LayoutCustom />}>
-          <Route index element={<MainPage />} />
-          <Route path="deck" element={<DiscPage />} />
+          <Route index element={<DiscPage />} />
           <Route path="*" element={<>404</>} />
         </Route>
       </Routes>

@@ -1,5 +1,4 @@
 import { Typography } from 'antd';
-import FileList from '@/components/FileList';
 
 const { Title } = Typography;
 import "./style.scss"
@@ -12,7 +11,7 @@ const MainPage = () => {
                 <button className='disk__create'>Создать папку</button>
             </div>
             <div>
-                <FileList />
+               
             </div>
         </div>
     )
