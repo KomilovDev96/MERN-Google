@@ -3,6 +3,8 @@ import FileList from "./components/FileList";
 import "./style.scss"
 import { useDispatch } from "react-redux";
 import { SetPopapDisplay } from "@/store/Features/File.slice";
+import { useEffect } from "react";
+import { GetFiles } from "@/store/Features/File.slice";
 
 
 const DiscPage = () => {
@@ -10,6 +12,10 @@ const DiscPage = () => {
     const showPopupHundler = () => {
         dispatch(SetPopapDisplay('flex'))
     }
+
+    useEffect(() => {
+        dispatch(GetFiles())    
+    }, [])
     return (
         <div className="disk">
             <div className="disk__btns">
