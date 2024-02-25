@@ -3,18 +3,19 @@ import FileList from "./components/FileList";
 import "./style.scss"
 import { useDispatch } from "react-redux";
 import { SetPopapDisplay } from "@/store/Features/File.slice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GetFiles } from "@/store/Features/File.slice";
 
 
 const DiscPage = () => {
+    const [curentDir, setcurnDir] = useState("65d447bcfcf64351c7bb093c")
     const dispatch = useDispatch()
     const showPopupHundler = () => {
         dispatch(SetPopapDisplay('flex'))
     }
 
     useEffect(() => {
-        dispatch(GetFiles())    
+        dispatch(GetFiles(curentDir))
     }, [])
     return (
         <div className="disk">

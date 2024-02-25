@@ -8,12 +8,16 @@ const initialState = {
     loading: false
 }
 
-export const GetFiles = createAsyncThunk('get/files', async (params, thunkAPI) => {
+export const GetFiles = createAsyncThunk('get/files', async (dirID, thunkAPI) => {
     try {
         const token = localStorage.getItem('token')
-        const res = await api.get('/api/files', {
+        let url = 'api/files'
+        if (dirID) {
+            url = `api/files/?parent=${dirID}`
+        }
+        const res = await api.get(url, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token} `
             }
         })
         return res.data
@@ -28,6 +32,28 @@ export const GetFiles = createAsyncThunk('get/files', async (params, thunkAPI) =
     }
 }
 )
+export const CreateFiles = createAsyncThunk('create/files', async (params, thunkAPI) => {
+    try {
+        const token = localStorage.getItem('token')
+        const res = await api.post('/api/files', {
+            headers: {
+                Authorization: `Bearer ${token} `
+            }
+        })
+        return res.data
+    } catch (error) {
+        const message =
+            (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+}
+)
+
+
 
 export const FIleSclice = createSlice({
     name: 'fileSclice',
